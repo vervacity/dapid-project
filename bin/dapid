@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+
+"""Runs DaPID project analysis
+"""
+
+import os
+import argparse
+import pkg_resources
+import json
+
+
+def parse_args():
+    """Setup arguments
+    """
+    parser = argparse.ArgumentParser(description="Run DaPID analyses")
+    subparsers = parser.add_subparsers(dest='subcommand_name')
+
+
+    args = parser.parse_args()
+    
+    return args
+
+
+def load_data_files(parser):
+    """Load all json files in so that we have handles on all data
+    """
+    json_files = glob.glob(pkg_resources.resource_filename('ggr', 'data/*.json'))
+    data_files = {}
+
+    for json_file in json_files:
+        key_name = os.path.basename(json_file).split('.json')[0]
+        with open(json_file, 'r') as fp:
+            parser.add_argument("--{}".format(key_name), type=dict, default=json.load(fp),
+                                help="Support data files")
+            
+    return
+
+def main():
+    """Run all code
+    """
+
+    
+
+    
+
+    return None
+
+
+main()
