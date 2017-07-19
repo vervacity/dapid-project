@@ -1,3 +1,4 @@
 {
-    "rna_norm_mat":"/mnt/lab_data/kundaje/users/dskim89/ggr/integrative/v5/data/ggr.pas.rlog.mat.txt.gz"
+    "rna_norm_mat":"/mnt/lab_data/kundaje/users/dskim89/ggr/integrative/v5/data/ggr.pas.rlog.mat.txt.gz",
+    "rna_trajectory_clusters":"/mnt/lab_data/kundaje/users/dskim89/ggr/transcriptome/results/rna.trajectories.2017-05-04.dp_gp_clustering/dynamic/ggr_optimal_clustering.txt"
 }

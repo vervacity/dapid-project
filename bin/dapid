@@ -7,15 +7,17 @@ import os
 import argparse
 import pkg_resources
 import json
+import glob
 
 
 def parse_args():
     """Setup arguments
     """
     parser = argparse.ArgumentParser(description="Run DaPID analyses")
-    subparsers = parser.add_subparsers(dest='subcommand_name')
-
-
+    #subparsers = parser.add_subparsers(dest='subcommand_name')
+    parser.add_argument("--out_dir", dest="out_dir", type=str, default='./',
+                        help = "If specified all output files will be written to that directory. Default: the current working directory")
+    load_data_files(parser)
     args = parser.parse_args()
     
     return args
@@ -24,7 +26,7 @@ def parse_args():
 def load_data_files(parser):
     """Load all json files in so that we have handles on all data
     """
-    json_files = glob.glob(pkg_resources.resource_filename('ggr', 'data/*.json'))
+    json_files = glob.glob(pkg_resources.resource_filename('dapid', 'data/*.json'))
     data_files = {}
 
     for json_file in json_files:
@@ -38,7 +40,11 @@ def load_data_files(parser):
 def main():
     """Run all code
     """
-
+    args = parse_args()
+    
+    # select motifs
+    from dapid.select_motifs import run
+    run(args)
     
 
     

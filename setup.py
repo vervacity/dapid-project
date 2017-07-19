@@ -14,5 +14,5 @@ if __name__== "__main__":
           packages=find_packages(),
           #package_data={'ggr':'data/*.json'},
           package_data={"":["data/*.json", "data/*.txt"]},
-          scripts=["bin/dapid"] + glob("R/*/*.R")
+          scripts=["bin/dapid"] + glob("R/*.R")
     )
